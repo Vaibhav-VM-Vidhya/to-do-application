@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+
 import Mainpage from './Components/Mainpage';
 
 function App() {
-  return (
+  return (<div className='bg-gray-200 h-screen'>
     <Mainpage/>
+    </div>
   );
 }
 
