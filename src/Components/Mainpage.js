@@ -8,8 +8,22 @@ const Mainpage = () => {
       <Heading/>
       <Tasks/>
       <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
-     
-      <Addtask/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+
+      <Tasks sub="main work " task_data="Complet Your practicla Book ready"/>
+
+      
+
     </div>
   )
 }

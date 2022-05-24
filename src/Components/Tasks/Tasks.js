@@ -5,7 +5,7 @@ import close_img from "./close.png";
 
 const Tasks = (props) => {
   const [close_courser, setclose_courser] = useState(true);
-  console.log(close_courser);
+  
   return (
     <>
       {close_courser && (
