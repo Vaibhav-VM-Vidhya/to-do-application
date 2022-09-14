@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import Addtask_module from "./Addtask_module";
+import Addtaskm from "./Addtaskm";
 import plus from "./plus.png";
-import Tasks from "./Tasks";
+// import Tasks from "./Tasks";
+// import Taskstate from '../../Context/Notes/Taskstate'
 const Addtask = () => {
+  // const {module,setmodule} = useContext(Taskstate);
   const [module, setmodule] = useState(false);
   return (
     <>
-      {module && <Addtask_module />}
+      {module && <Addtaskm mod={setmodule}/>}
       <div
         className="fixed bottom-8 right-8"
         onClick={() => {
