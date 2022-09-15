@@ -34,7 +34,7 @@ const Tasks = ({title,desc,date,remove}) => {
           <div>
             <h1 className="font-bold mx-2 mb-3">{desc}</h1>
           </div>
-          {/* <div className="mx-2 font-thin">{date}</div> */}
+          <div className="mx-2 font-thin  flex justify-end items-center">Last Date : {date}</div>
         </motion.div>
       )}
     </>

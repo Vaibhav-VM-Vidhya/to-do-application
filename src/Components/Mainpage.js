@@ -4,6 +4,7 @@ const Mainpage = () => {
   const title = useRef();
   const [addtask, setaddtask] = useState(false)
   const decription = useRef();
+  const date = useRef()
 
   const [cart, setcart] = useState({});
 
@@ -34,10 +35,10 @@ const Mainpage = () => {
                   + currentdate.getMinutes() + ":" 
                   + currentdate.getSeconds();
 
-  const addtotasks = async (taskid,title,desc) => {
+  const addtotasks = async (taskid,title,desc,lastdate) => {
     let newCart = cart;
       
-      newCart[taskid] = { taskid,title,desc,datetime};
+      newCart[taskid] = { taskid,title,desc,datetime,lastdate};
     
     setcart(newCart);
     savecart(newCart);
@@ -58,42 +59,14 @@ const Mainpage = () => {
     setcart(newCart);
     savecart(newCart);
   };
-  const task_data = {
-    dairy: {
-      milk: [
-        { id:"101",
-          product_name: "Milk",
-          cata: "milk",
-          brand: "Amol",
-          qty: "1 liter",
-          price: "50",
-          img: "https://www.bigbasket.com/media/uploads/p/l/306926-2_4-amul-homogenised-toned-milk.jpg",
-          seller_name: "Samarth milk wale",
-          Rating: "4 Star",
-        },
-        {
-          id:"102",
-          product_name: "Milk",
-          cata: "milk",
-          brand: "Amol",
-          qty: "500 ml",
-          price: "25",
-          img: "https://www.bigbasket.com/media/uploads/p/l/306926-2_4-amul-homogenised-toned-milk.jpg",
-          seller_name: "",
-          Rating: "4 Star",
-        },
-      ],
-      
-    },
-    
-  };
-
+ 
 
   const onsubmithandler = () => {
     const t = title.current.value;
     const d = decription.current.value;
-    console.log(t,d)
-    addtotasks(t,t,d)
+    const da = date.current.value;
+    console.log(t,d,da)
+    addtotasks(t,t,d,da)
   };
   let data = [];
   for (const key in cart) {
@@ -117,14 +90,14 @@ const onaddtaskopenerhandler = ()=>{
   return (
     <div className="">
       {!addtask && 
-      <div onClick={onaddtaskopenerhandler} className="w-full flex justify-center items-center flex-col space-y-1 my-4">
+      <div onClick={onaddtaskopenerhandler} className="cursor-pointer w-full flex justify-center items-center flex-col space-y-1 my-4">
         <div class="border bg-black border-black w-4"></div>
         <div class="border bg-black border-black w-4"></div>
         <div class="border bg-black border-black w-4"></div>
 
       </div>}
       {addtask && 
-      <div onClick={onaddtaskopenerhandler} className="w-full flex justify-center items-center flex-col space-y-1 my-4">
+      <div onClick={onaddtaskopenerhandler} className="cursor-pointer w-full flex justify-center items-center flex-col space-y-1 my-4">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" />
 </svg>
@@ -161,6 +134,18 @@ const onaddtaskopenerhandler = ()=>{
             className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           />
         </div>
+        <div className="relative mb-4">
+          <label className="leading-7 text-sm text-gray-600">
+            Enter Last Date
+          </label>
+          <input
+           ref={date}
+            type="date"
+            id=""
+            placeholder="Enter task here"
+            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+        </div>
         <button
           onClick={onsubmithandler}
           className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-xl text-lg"
@@ -170,7 +155,7 @@ const onaddtaskopenerhandler = ()=>{
       </div>
     </div>}
       {data.map((d)=>{
-        return  <Tasks title={d.title} desc={d.desc} remove={removefromtasks} date={d.datetime}/>
+        return  <Tasks title={d.title} desc={d.desc} remove={removefromtasks} date={d.lastdate}/>
       })}
      
     </div>
